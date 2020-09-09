@@ -7,7 +7,7 @@ private:
 	double m_h, m_exp;
 	double *m_u, *m_v, *m_x;
 
-	double f(double x);
+	double g(double x);
 	double exact(double x);
 	double** Dmatrix(int row, int col);
 	void delete_Dmatrix(double** M, int row, int col);

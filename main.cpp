@@ -10,6 +10,9 @@ int main() {
 	clock_t start, finish;
 
 	if (false) {
+
+		// Compares computation time of the three methods
+
 		Poisson my_solver;
 		my_solver.Initialize(3);
 
@@ -50,10 +53,11 @@ int main() {
 		outFile.close();
 	}
 
-	start = clock();
 
-	//Solve integral
-	if (true) {
+	if (false) {
+
+		// Finds the max error of different Ns, and writes them to file
+
 		ofstream outFile;
 		outFile.open("error.txt");
 
@@ -64,9 +68,7 @@ int main() {
 			exp = i/10.0;
 			Poisson my_solver;
 			my_solver.Initialize(exp);
-			//my_solver.Integrate_proper();
 			my_solver.Integrate_efficient();
-			//my_solver.LU_decomp();
 			error = my_solver.get_maxerror();
 
 			outFile << setw(15) << setprecision(8) << scientific << (int)pow(10,exp) << " " << error << endl;
@@ -74,9 +76,7 @@ int main() {
 
 		outFile.close();
 	}
-	
-	finish = clock();
-	cout << endl << setprecision(8) << "Time: " << (((double)finish - start)/(double)CLOCKS_PER_SEC*1000.0) << " ms.";
+
 
 	
 	return 0;
